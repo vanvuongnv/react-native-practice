@@ -15,39 +15,62 @@ Download: https://www.oracle.com/java/technologies/javase/jdk11-archive-download
 Download: https://developer.android.com/studio
 
 #### iOS
+- Node & Watchman
+We recommend installing Node and Watchman using Homebrew. Run the following commands in a Terminal after installing Homebrew:
+
 - XCODE
 The easiest way to install Xcode is via the Mac App Store
 https://apps.apple.com/us/app/xcode/id497799835?mt=12
-- CocoaPods
-Install: sudo gem install cocoapods
+
+- CocoaPods 
+```
+sudo gem install cocoapods
+```
 more detail: https://guides.cocoapods.org/using/getting-started.html
+> **Note**: CocoaPods is a Ruby gem. You can install CocoaPods using the version of Ruby that ships with the latest version of macOS.
 
 #### React Native command line
 React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using npx, which ships with Node.js. With npx react-native <command>, the current stable version of the CLI will be downloaded and executed at the time the command is run.
 
 Example: Creating a new application called "AwesomeProject"
 
-> **Note**: npx react-native@latest init AwesomeProject
+```
+npx react-native@latest init AwesomeProject
+```
 
 #### Using Typescript
 Creating a new application called "MyApp"
-> **Note**: npx react-native init --template react-native-template-typescript MyApp
-
+```
+npx react-native init --template react-native-template-typescript MyApp
+```
+#### Linking Native Code on iOS
+```
+npx pod-install
+```
 ### Running your React Native application
 #### Using NPM
-> **Note**: npm start
+```
+npm start
+```
 
 #### Using yarn
-> **Note**: yarn start
-
+```
+yarn start
+```
 
 #### Start with target OS
-> **Note**: yarn android
-> **Note**: yarn ios
+```
+yarn android
+```
+```
+yarn ios
+```
 
 You should see your new app running in the Simulator shortly.
-- Android
+- Android:
+
 ![Decorative](/Assets/Lab_01/android.png) 
-- iOS
+- iOS:
+
 ![Decorative](/Assets/Lab_01/ios.png) 
 
