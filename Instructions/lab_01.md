@@ -32,3 +32,22 @@ Example: Creating a new application called "AwesomeProject"
 #### Using Typescript
 Creating a new application called "MyApp"
 > **Note**: npx react-native init --template react-native-template-typescript MyApp
+
+### Running your React Native application
+#### Using NPM
+> **Note**: npm start
+
+#### Using yarn
+> **Note**: yarn start
+
+
+#### Start with target OS
+> **Note**: yarn android
+> **Note**: yarn ios
+
+You should see your new app running in the Simulator shortly.
+- Android
+![Decorative](/Assets/Lab_01/android.png) 
+- iOS
+![Decorative](/Assets/Lab_01/ios.png) 
+
