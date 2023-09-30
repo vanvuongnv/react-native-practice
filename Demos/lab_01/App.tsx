@@ -7,13 +7,12 @@
 
 import React from 'react';
 import HomePage from './src/pages/home/HomePage';
+import LoginPage from './src/pages/login/LoginPage';
 import { SafeAreaView } from 'react-native';
 function App(): JSX.Element {
   
   return (
-    <SafeAreaView>
-      <HomePage />
-    </SafeAreaView>
+    <LoginPage />
   );
 }
 
