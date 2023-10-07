@@ -6,13 +6,11 @@
  */
 
 import React from 'react';
-import HomePage from './src/pages/home/HomePage';
-import LoginPage from './src/pages/login/LoginPage';
-import { SafeAreaView } from 'react-native';
+import Navigation from './src/navigation';
 function App(): JSX.Element {
   
   return (
-    <LoginPage />
+    <Navigation />
   );
 }
 
