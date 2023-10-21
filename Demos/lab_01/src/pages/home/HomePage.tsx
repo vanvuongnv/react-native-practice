@@ -1,21 +1,63 @@
-import React from "react";
-import { Button, Image, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Button, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StudentModel } from "../../models/student.model";
+import { SCREENS } from "../../helpers/constants";
 
-const HomePage = () => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>
-                Xin chào mọi người
-            </Text>
-            <Image 
-                source={ {uri: 'https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-1/352741917_2786211904847379_440591286711943252_n.jpg?stp=dst-jpg_p480x480&_nc_cat=111&ccb=1-7&_nc_sid=fe8171&_nc_ohc=ARo9LJjRnbsAX9p3SB1&_nc_ht=scontent.fdad1-3.fna&oh=00_AfDu2Nxv52n2g39Sf1tkoG9AlEosojHgye8UCJeXyyOJig&oe=65011DAE'}}
-                style={styles.avatar}
-            />
-            <View style={styles.btn}>
-                <Button 
-                    color={'#ffffff'}
-                    title="Click Me!" />
+type ItemProps = {
+    item: StudentModel,
+    onPress: () => void
+}
+const HomePage = ({navigation}) => {
+    
+    const [studentName, setStudentName] = useState('')
+
+    useEffect(() => {
+        if (studentName !== '') {
+            navigation.navigate(SCREENS.DETAIL, {
+                studentName: studentName
+            })
+        }
+    }, [studentName]);
+
+    const students = Array<StudentModel>();
+    students.push({
+        name: 'vuong',
+        avatar: '../../assets/images/logo.png',
+        dateOfBirth: new Date(2020, 10, 10)
+    })
+    students.push({
+        name: 'dieu',
+        avatar: '../../assets/images/logo.png',
+        dateOfBirth: new Date(2020, 10, 10)
+    })
+    students.push({
+        name: 'khue',
+        avatar: '../../assets/images/logo.png',
+        dateOfBirth: new Date(2020, 10, 10)
+    })
+    students.push({
+        name: 'an',
+        avatar: '../../assets/images/logo.png',
+        dateOfBirth: new Date(2020, 10, 10)
+    })
+    
+    const StudentItem = ({item, onPress}: ItemProps) => (
+        <TouchableOpacity onPress={onPress}>
+            <View style={styles.studentContainer}>
+                <Text>{item.name}</Text>
+                <Text>{item.dateOfBirth.toLocaleString()}</Text>
             </View>
+        </TouchableOpacity>
+    )
+    
+
+    return (
+        <View>
+            <Text>Danh sach sinh vien</Text>
+            <FlatList 
+                data={students}
+                renderItem={({item}) => <StudentItem item={item} onPress={() => setStudentName(item.name)}  />}
+                keyExtractor={(item: StudentModel) => item.name} />
         </View>
     )
 }
@@ -43,6 +85,11 @@ const styles = StyleSheet.create({
     avatar: {
         width: 150,
         height: 150
+    },
+    studentContainer: {
+        padding: 10,
+        borderBottomColor: '#EEEEEE',
+        borderBottomWidth: 1
     }
 })
 

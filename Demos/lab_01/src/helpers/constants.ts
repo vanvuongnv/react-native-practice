@@ -1,5 +1,6 @@
 export const SCREENS = {
     HOME: 'HomePage',
     REGISTER: 'RegisterPage',
-    LOGIN: 'LoginPage'
+    LOGIN: 'LoginPage',
+    DETAIL: 'DetailPage'
 }
